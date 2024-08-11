@@ -4,7 +4,8 @@ using UnityEngine;
 public class HelloWorldManager : MonoBehaviour
 {
     private NetworkManager networkManager;
-
+    
+    
     private void Awake()
     {
         networkManager = GetComponent<NetworkManager>();
@@ -20,7 +21,6 @@ public class HelloWorldManager : MonoBehaviour
         else
         {
             StatusLabels();
-
             SubmitNewPosition();
         }
 
@@ -38,8 +38,7 @@ public class HelloWorldManager : MonoBehaviour
     {
         var mode = networkManager.IsHost ? "Host" : networkManager.IsServer ? "Server" : "Client";
 
-        GUILayout.Label("Transport: " +
-                        networkManager.NetworkConfig.NetworkTransport.GetType().Name);
+        GUILayout.Label("Transport: " + networkManager.NetworkConfig.NetworkTransport.GetType().Name);
         GUILayout.Label("Mode: " + mode);
     }
 
